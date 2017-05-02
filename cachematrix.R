@@ -1,11 +1,11 @@
 ##  Below is a pair of functions that cache the inverse of a matrix.
 
 ## makeCacheMatrix is a function that generates a set of functions stored in the form of a list, which will be 
-## the input of the next function cacheSolve. In this function, x is the matrix we input and the calculation 
+## the input of the next function, cacheSolve. In this function, x is the matrix we input and the calculation 
 ## of its inverse matrix will be stored in m.
 
 makeCacheMatrix <- function(x = matrix()) {
-m <- NULL
+  m <- NULL
   set <- function(y) {
     x <<- y
     m <<- NULL
@@ -25,8 +25,8 @@ m <- NULL
 
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-m <- x$getinverse()
+  ## Return a matrix that is the inverse of 'x'
+  m <- x$getinverse()
   if(!is.null(m)) {
     message("getting cached data")
     return(m)
@@ -37,17 +37,19 @@ m <- x$getinverse()
   m
 }
 
-## How to use the funcions:
-## > z<-makeCacheMatrix(matrix(c(1,2,0,2,3,4,-2,-3,3),3,3))
+## An example on how to use the funcions:
+
+## > z <- makeCacheMatrix(matrix(c(1,2,0,2,3,4,-2,-3,3),3,3))
 ## > cacheSolve(z)
            [,1]       [,2]      [,3]
-[1,] -3.0000000  2.0000000 0.0000000
-[2,]  0.8571429 -0.4285714 0.1428571
-[3,] -1.1428571  0.5714286 0.1428571
+## [1,] -3.0000000  2.0000000 0.0000000
+## [2,]  0.8571429 -0.4285714 0.1428571
+## [3,] -1.1428571  0.5714286 0.1428571
+
 ## > cacheSolve(z)
-getting cached data
-           [,1]       [,2]      [,3]
-[1,] -3.0000000  2.0000000 0.0000000
-[2,]  0.8571429 -0.4285714 0.1428571
-[3,] -1.1428571  0.5714286 0.1428571
+## getting cached data
+##           [,1]       [,2]      [,3]
+## [1,] -3.0000000  2.0000000 0.0000000
+## [2,]  0.8571429 -0.4285714 0.1428571
+## [3,] -1.1428571  0.5714286 0.1428571
 
